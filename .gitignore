@@ -1,0 +1,8 @@
+node_modules/
+
+# cypress
+cypress/videos
+cypress/screeshots
+mochawesome-report
+index.json
+.DS_Store
