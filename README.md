@@ -1,4 +1,5 @@
 "# semana-agilizei-02" 
+
 Para iniciar o cypress: npx cypress open
 
 
