@@ -5,9 +5,9 @@
     "passes": 1,
     "pending": 0,
     "failures": 0,
-    "start": "2021-01-27T15:17:54.912Z",
-    "end": "2021-01-27T15:18:09.981Z",
-    "duration": 15069,
+    "start": "2021-01-27T15:21:49.029Z",
+    "end": "2021-01-27T15:22:05.333Z",
+    "duration": 16304,
     "testsRegistered": 1,
     "passPercent": 100,
     "pendingPercent": 0,
@@ -18,7 +18,7 @@
   },
   "results": [
     {
-      "uuid": "7b5532f9-f50b-465c-824c-4b4c62bbe295",
+      "uuid": "ad8ea65e-a218-4494-9b9c-a3296b5107e8",
       "title": "",
       "fullFile": "cypress/integration/compras.spec.js",
       "file": "cypress/integration/compras.spec.js",
@@ -27,7 +27,7 @@
       "tests": [],
       "suites": [
         {
-          "uuid": "e185c248-adbc-4c34-a2ea-8ca46f9a4e1a",
+          "uuid": "070aa7ca-46fd-4033-90ec-c3aee2916d00",
           "title": "Compra",
           "fullFile": "",
           "file": "",
@@ -38,7 +38,7 @@
               "title": "Efetuar uma compra de produto",
               "fullTitle": "Compra Efetuar uma compra de produto",
               "timedOut": null,
-              "duration": 14943,
+              "duration": 16230,
               "state": "passed",
               "speed": "slow",
               "pass": true,
@@ -47,20 +47,20 @@
               "context": null,
               "code": "// utilização de comando personalizado para realizar o background login. \n// o comando personalizado é configurado no arquivo support/commands.js\ncy.backgroundLogin();\n/*\n//realizar a inclusão do cookie para realizar o background login\ncy.setCookie(\n    'PrestaShop-a30a9934ef476d11b6cc3c983616e364',\n    '8JYVddvvVUUWYwyn08WBQtURZoTMyMCe0bDt7xBrHJ8tnPDlbxEE7qcVGM%2FI8KVrVlr7RbPBMZeQ8a%2BLL4C4nogVbh9jY0gY4rqJQ7d6ZJw6WPEcvfaJrvcF%2B09MCmht6r50Ue3edrTQRMMsF5XV1wPI6T3ZBPeG5gTVgzS1uei7oodJiyx446Yf55ECIDhEQEHTGHFwpWafLFk30OEibj%2Fyx4l8Y%2B5CNp%2B7irlN%2BxOuTH6NGvOF%2B8LmQOt%2BLZYcO5B3i05MREsZ7qkOCOAVao8DfHtsc%2Fz3rlcY15xNxde9sSN6T8EtnIyP0RqML4Fzt953BpOZ4B0khkO1BpDN%2B7cAswOWnBlYhuPpQ0Z8lXDaIE6%2F2JcAd9%2FqmH7QWnZwc22SFPLMVZq8YlsdnK6yOjNsCqod6zwpzrHHEKtbQ5Pm6Xq%2BWD1vG7uHWDJdOfIM000323'\n)\n*/\n//http://automationpractice.com/index.php\n// acesse o site cadastrado no parâmetro baseUrl do arquivo cypress.json\ncy.visit('/');\nvar nomeProduto = 'Faded Short Sleeve T-shirts'; //cy.contains - realiza a busca de elementos que contenha o texto determinado\n// .trigger - dipara o evento indicado no elemento\ncy.contains(nomeProduto).trigger('mouseover');\ncy.contains(nomeProduto).parent() // acessa o pai do elemento localizado \n.siblings('div.button-container') // acessa o elemento irmão de um elemento\n.children('a') // acessa o elemento filho indicado\n.first() // encontra o primeiro elemento filho\n.click(); //valida se o produto correto foi adicionado no carrinho\ncy.get('.icon-ok').parent() // acessa o pai do elemento localizado tag \"h2\"\n.should('contain.text', 'Product successfully added to your shopping cart');\ncy.get('span#layer_cart_product_title').should('contain.text', nomeProduto); //cy.pause() //realiza a pausa na execução do código\n//cy.get - encontrar elementos na DOM\ncy.get(\".button-container a[href$='controller=order']\").click();\ncy.get(\".cart_navigation a[href$='order&step=1']\").click(); //Efetuar login na página quando não for utilizado o background login\n/* \ncy.get('#email').type('dev123@domain.com.br');\ncy.get('#passwd').type('dev123');\ncy.get('button#SubmitLogin').click(); \n*/\n// Validando se o endereço de entrega é igual ao de cobrança \n//[type=checkbox]#addressesAreEquals\n//tipo de asserção | atributo | valor do atributo  - Validar o conteúdo de um determinado elemento\ncy.get('[type=checkbox]#addressesAreEquals').should('have.attr', 'checked', 'checked');\ncy.get('[type=checkbox]#addressesAreEquals').should('have.attr', 'name', 'same');\ncy.get('button[name=processAddress]').click();\ncy.get('[type=checkbox]#cgv').click();\ncy.get('button[name=processCarrier]').click();\ncy.get('.bankwire').click();\ncy.get('.cart_navigation button[type=submit]').find('span') // procura a tag indicada\n.contains('I confirm my order').click(); // should confirma se contem o texto indicado \ncy.get('.cheque-indent strong').should('contain.text', 'Your order on My Store is complete.'); // Mecanismos de busca: expect/should\n// expect - forma de asserção explicita\n// should - forma de asserção implicita\n//.invoke = invoca uma função no assunto anteriormente produzido. Invoke não retorna uma string neste caso é  necessário criar uma arrow function\ncy.get('div.box').invoke('text').then(function (text) {\n  console.log(text); // Expressão regular \"[A-Z][A-Z]+\" localiza texto começando e terminando com letras maíusculas.\n  // / = inicia a expressão regular\n  // [A-Z]{4,} = expressão regular(strings com caracteres de A-Z em caixa alta e que contenha 4 ou mais caracteres)\n  // /g = realizar a busca global retornando todas as ocorrencias que encontrar no texto\n  console.log(text.match(/[A-Z]{4,}/g)); // Escrever um arquivo JSON com o conteúdo localizado \n  // Parâmetros: Caminho do Arquivo(sempre a partir do root) | Conteúdo do Arquivo\n  cy.writeFile('cypress/fixtures/pedido.json', {\n    id: \"\".concat(text.match(/[A-Z]{4,}/g))\n  });\n});\ncy.get('.cart_navigation a[href$=\"history\"]').click(); //then utilizado para acessar o conteúdo do arquivo\ncy.readFile('cypress/fixtures/pedido.json').then(function (pedido) {\n  cy.get('tr.first_item td.history_link a').should('contains.text', pedido.id);\n});",
               "err": {},
-              "uuid": "e3faa617-b845-4e8e-ae9e-5b742f67e3da",
-              "parentUUID": "e185c248-adbc-4c34-a2ea-8ca46f9a4e1a",
+              "uuid": "5c44c3ee-1732-42d9-9785-150ea116af0a",
+              "parentUUID": "070aa7ca-46fd-4033-90ec-c3aee2916d00",
               "isHook": false,
               "skipped": false
             }
           ],
           "suites": [],
           "passes": [
-            "e3faa617-b845-4e8e-ae9e-5b742f67e3da"
+            "5c44c3ee-1732-42d9-9785-150ea116af0a"
           ],
           "failures": [],
           "pending": [],
           "skipped": [],
-          "duration": 14943,
+          "duration": 16230,
           "root": false,
           "rootEmpty": false,
           "_timeout": 2000
