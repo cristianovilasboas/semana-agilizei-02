@@ -24,7 +24,7 @@ jobs:
     #Versão do node que será instalada
     strategy:
       matrix:
-        node-version: [12x]
+        node-version: [12.x]
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     # Instala o node na maquina
