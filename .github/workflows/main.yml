@@ -39,7 +39,7 @@ jobs:
       #Acão para baixar o código para a máquina
       - uses: actions/checkout@v2
 
-      #Instalando todas as dependencias do projeto
+      #Instalando as dependencias do projeto
         - run: npm install
         
       #Executa o teste
