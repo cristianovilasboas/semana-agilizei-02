@@ -4,7 +4,7 @@ name: CI
 # Controls when the action will run. 
 on:
   # Triggers the workflow on push or pull request events but only for the main branch
-  #Gatilhos que farão o código ser executado.
+  # Gatilhos que farão o código ser executado.
   push:
     branches: [ main ]
   pull_request:
@@ -18,7 +18,7 @@ jobs:
   # This workflow contains a single job called "build"
   build:
     # The type of runner that the job will run on
-    #sistema operacional da maquina que será executada o teste
+    # Sistema operacional da maquina que será executada o teste
     runs-on: ubuntu-latest
     
     #Versão do node que será instalada
@@ -27,7 +27,7 @@ jobs:
         node-version: [12x]
 
     # Steps represent a sequence of tasks that will be executed as part of the job
-    #Instala o node na maquina
+    # Instala o node na maquina
     steps:
       - name: Setup Node.js
         uses: actions/setup-node@v2.1.2
@@ -36,27 +36,30 @@ jobs:
       
       
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      #Acão para baixar o código para a máquina
+      # Acão para baixar o código para a máquina
       - uses: actions/checkout@v2
 
-      #Instalando as dependencias do projeto
-        - run: npm install
+      # Instala as dependencias do projeto
+      - run: npm install
         
-      #Executa o teste
+      # Executa o teste
       - run: npm cy:run
+        # Parâmetro para continuar a execução do código mesmo que o teste ocorra erro
+        continue-on-error: true
         
-      #Realiza o merge dos arquivos de relatório
+        
+      # Realiza o merge dos arquivos de relatório
       - run: report:merge
         
-      #Gera o relatório dos testes realizados
+      # Gera o relatório dos testes realizados
       - run: report:mocha
         
-      #Publica o resultado do teste realizado no github pages
+      # Publica o resultado do teste realizado no github pages
       - name: Deploy to GithubPages
-        uses: JamesIves/github-pages-deploy-action@3.7.1 #Biblioteca utilizada para realizar a utilização do hithub pages
+        uses: JamesIves/github-pages-deploy-action@3.7.1 # Biblioteca utilizada para realizar a utilização do hithub pages
         with:
-          GITHUB_TOKEN: secrets.GITHUB_TOKEN #Confere as credências necessárias para interagir com o projeto
-          BRANCH: gh-pages #Qual branch será gerado o relatório
+          GITHUB_TOKEN: secrets.GITHUB_TOKEN # Confere as credências necessárias para interagir com o projeto
+          BRANCH: gh-pages # Qual branch será gerado o relatório
           FOLDER: mochawesome-report
         
       
