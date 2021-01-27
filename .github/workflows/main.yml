@@ -43,16 +43,15 @@ jobs:
       - run: npm install
         
       # Executa o teste
-      - run: npm cy:run
+      - run: npm run cy:run
         # Parâmetro para continuar a execução do código mesmo que o teste ocorra erro
         continue-on-error: true
         
-        
       # Realiza o merge dos arquivos de relatório
-      - run: report:merge
+      - run: npm run report:merge
         
       # Gera o relatório dos testes realizados
-      - run: report:mocha
+      - run: npm run report:mocha
         
       # Publica o resultado do teste realizado no github pages
       - name: Deploy to GithubPages
