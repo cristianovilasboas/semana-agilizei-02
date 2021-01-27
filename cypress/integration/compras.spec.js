@@ -1,3 +1,4 @@
+// Arquivo com teste que será executado.
 /// <reference types="Cypress" />
 
 context('Compra', () => {
