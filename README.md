@@ -45,3 +45,8 @@ n"report:merge": "mochawesome-merge > index.json",
 "report:mocha": "mochawesome-report-generator index.json",
 "report:clean": "rimraf mochawesome-report index.json"
 
+
+Para acessar o Github Pages
+<nome do usuário>.github.io/<nome do reposiório>
+
+
